@@ -10,13 +10,13 @@ if ! command -v openssl &> /dev/null; then
   fi
 fi
 
-# Установка qrencode
-if ! command -v qrencode &> /dev/null; then
-  sudo apt update && sudo apt install -y qrencode
-  if [ $? -ne 0 ]; then
-    exit 1
-  fi
-fi
+# # Установка qrencode
+# if ! command -v qrencode &> /dev/null; then
+#   sudo apt update && sudo apt install -y qrencode
+#   if [ $? -ne 0 ]; then
+#     exit 1
+#   fi
+# fi
 
 # Функция ожидания нажатия Enter
 wait_for_enter() {
@@ -24,15 +24,15 @@ wait_for_enter() {
   read -r
 }
 
-# Установка 3X-UI
-if ! command -v x-ui &> /dev/null; then
-  bash <(curl -Ls https://raw.githubusercontent.com/MHSanaei/3x-ui/refs/tags/v2.6.0/install.sh)
-  if [ $? -ne 0 ]; then
-    exit 1
-  fi
-else
-  echo "3X-UI уже установлен."
-fi
+# # Установка 3X-UI
+# if ! command -v x-ui &> /dev/null; then
+#   bash <(curl -Ls https://raw.githubusercontent.com/MHSanaei/3x-ui/refs/tags/v2.6.0/install.sh)
+#   if [ $? -ne 0 ]; then
+#     exit 1
+#   fi
+# else
+#   echo "3X-UI уже установлен."
+# fi
 
 # Запуск 3X-UI
 systemctl daemon-reload
@@ -43,42 +43,42 @@ else
   x-ui
 fi
 
-# ASCII-арт
-cat << "EOF"
-============================================================
-       ПОДПИШИСЬ НА НАС НА YOUTUBE: ANTEN-KA
-============================================================
-EOF
+# # ASCII-арт
+# cat << "EOF"
+# ============================================================
+#        ПОДПИШИСЬ НА НАС НА YOUTUBE: ANTEN-KA
+# ============================================================
+# EOF
 
-# QR-код для чаевых
-echo "############################################################"
-echo "#                    QR-КОД ДЛЯ ЧАЕВЫХ                     #"
-echo "############################################################"
-TIP_LINK="https://pay.cloudtips.ru/p/7410814f"
-qrencode -t ANSIUTF8 "$TIP_LINK"
-wait_for_enter
+# # QR-код для чаевых
+# echo "############################################################"
+# echo "#                    QR-КОД ДЛЯ ЧАЕВЫХ                     #"
+# echo "############################################################"
+# TIP_LINK="https://pay.cloudtips.ru/p/7410814f"
+# qrencode -t ANSIUTF8 "$TIP_LINK"
+# wait_for_enter
 
-# Разделитель из 3 строк
-for i in {1..3}; do echo "============================================================"; done
+# # Разделитель из 3 строк
+# for i in {1..3}; do echo "============================================================"; done
 
-# QR-код YouTube
-echo "############################################################"
-echo "#                      QR-КОД YOUTUBE                      #"
-echo "############################################################"
-YT_LINK="https://www.youtube.com/antenkaru"
-qrencode -t ANSIUTF8 "$YT_LINK"
-wait_for_enter
+# # QR-код YouTube
+# echo "############################################################"
+# echo "#                      QR-КОД YOUTUBE                      #"
+# echo "############################################################"
+# YT_LINK="https://www.youtube.com/antenkaru"
+# qrencode -t ANSIUTF8 "$YT_LINK"
+# wait_for_enter
 
-# Разделитель из 3 строк
-for i in {1..3}; do echo "============================================================"; done
+# # Разделитель из 3 строк
+# for i in {1..3}; do echo "============================================================"; done
 
-# QR-код Boosty
-echo "############################################################"
-echo "#                      QR-КОД BOOSTY                       #"
-echo "############################################################"
-BOOSTY_LINK="https://boosty.to/anten-ka"
-qrencode -t ANSIUTF8 "$BOOSTY_LINK"
-wait_for_enter
+# # QR-код Boosty
+# echo "############################################################"
+# echo "#                      QR-КОД BOOSTY                       #"
+# echo "############################################################"
+# BOOSTY_LINK="https://boosty.to/anten-ka"
+# qrencode -t ANSIUTF8 "$BOOSTY_LINK"
+# wait_for_enter
 
 # Разделитель из 3 строк
 for i in {1..3}; do echo "============================================================"; done

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Устанавливаем 3x-ui панель для VLESS и сертификаты на 10 лет
+# Устанавливаем сертификаты на 10 лет
 
 # Установка OpenSSL
 if ! command -v openssl &> /dev/null; then
@@ -15,16 +15,6 @@ wait_for_enter() {
   echo -e "Нажмите Enter, чтобы продолжить..."
   read -r
 }
-
-# Установка 3X-UI
-if ! command -v x-ui &> /dev/null; then
-  bash <(curl -Ls https://raw.githubusercontent.com/MHSanaei/3x-ui/refs/tags/v2.6.0/install.sh)
-  if [ $? -ne 0 ]; then
-    exit 1
-  fi
-else
-  echo "3X-UI уже установлен."
-fi
 
 # Запуск 3X-UI
 systemctl daemon-reload

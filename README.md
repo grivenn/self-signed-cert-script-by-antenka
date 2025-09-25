@@ -19,7 +19,7 @@ sudo apt update && sudo apt install -y git curl openssl qrencode systemd && rm -
 ```
 
 ### =======================================================
-### 1.1 Клонирование репозитория -- исправленная версия
+### 1.1 Клонирование репозитория -- версия без установки 3X-UI, только сертификаты
 ```bash
-sudo apt update && sudo apt install -y git curl openssl systemd && rm -rf ~/self-signed-cert-script-by-antenka && git clone https://github.com/grivenn/self-signed-cert-script-by-antenka.git && cd self-signed-cert-script-by-antenka && chmod +x self_signed_cert.sh && sudo ./self_signed_cert.sh
+sudo apt update && sudo apt install -y git curl openssl systemd && rm -rf ~/self-signed-cert-script-by-antenka && git clone https://github.com/grivenn/self-signed-cert-script-by-antenka.git && cd self-signed-cert-script-by-antenka && chmod +x self_signed_cert_only.sh && sudo ./self_signed_cert_only.sh
 ```
